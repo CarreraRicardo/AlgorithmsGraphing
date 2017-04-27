@@ -1,5 +1,5 @@
 
-var punto = {x1:70,y1:70,x2:20,y2:10};
+var punto = {x1:300,y1:400,x2:20,y2:100}; 
 
 
 function setup(){
@@ -14,6 +14,8 @@ function draw(){
 	noLoop();
 	background('GREEN');
 	stroke('yellow');
-	DDA(punto);
+	//DDA(punto);
+	//Direct(punto);
+	Bresenham(punto);
 	
 }
