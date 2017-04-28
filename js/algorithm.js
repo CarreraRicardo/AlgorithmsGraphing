@@ -5,7 +5,7 @@ function DDA (punto){
 
 	if(punto.x1 > punto.x2 || punto.y1 > punto.y2){
 
-		pendiente *= -1;
+		//pendiente *= -1;
 
 		if(pendiente === 0){
 
@@ -120,6 +120,37 @@ function Direct(punto){
 
 
 	}
+	else if(punto.x1  === punto.x2){
+
+		pendiente = (punto.x2 - punto.x1) / (punto.y2 - punto.y1);
+
+		b = punto.x1 - (pendiente * punto.y1);
+
+		if(punto.y1 < punto.y2){
+
+			for(var i = punto.y1; i < punto.y2; i++){
+
+				point(x,y);
+				y++;
+				x = Math.round(pendiente * y + b);
+			}
+
+		}
+		else{
+
+			for(var i = punto.y1; i > punto.y2; i--){
+
+				point(x,y);
+				y--;
+				x = Math.round(pendiente * y + b);
+			}
+
+
+		}
+
+		
+
+	}
 
 	
 
@@ -144,6 +175,8 @@ function Bresenham(punto){
 
 		if(punto.x1 < punto.x2){
 
+			
+
 			for(var i = punto.x1; i < punto.x2; i++){
 
 				if(pk > 0){
@@ -166,27 +199,56 @@ function Bresenham(punto){
 		}
 		else if(punto.x1 > punto.x2){
 
+			 resta = dosDeltaX - dosDeltaY;
+
+			 pk = dosDeltaX - deltaY;
+			 
 			for(var i = punto.x1; i > punto.x2; i--){
 
 				if(pk > 0){
 
-					point(x--,y--);
+					point(x--,y++);
 
 					pk = pk - resta;
+					 
 
 				}
 				else if(pk < 0){
 
 					point(x--,y);
 
-					pk = pk - dosDeltaY;
+					pk = pk - dosDeltaX;
 
+					
+				
 				}
 
 			}
 
 		}
+		else if(punto.x1 === punto.x2){
 
-	
+				for(var i = punto.y1; i < punto.y2; i++){
+
+					if(pk > 0){
+
+						point(x,y++);
+
+						pk = pk + resta;
+
+					}
+					else if(pk < 0){
+
+						point(x++,y);
+
+						pk = pk + dosDeltaY;
+
+					}
+
+				}
+
+
+		}
+
 	}
 }
