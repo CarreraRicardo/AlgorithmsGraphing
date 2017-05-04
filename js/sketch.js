@@ -11,14 +11,10 @@ function draw(){
 	noLoop();
 	background('GREEN');
 
-	//DDA(punto);
-	//Direct(punto);
-	//Bresenham(punto);
-
-	strokeWeight(7);
-
-
+	
+	strokeWeight(3);
 	stroke('yellow');
+	/*
 	Direct({x1:0, y1: 0, x2: width, y2: height}); //   \ 
 
 	stroke('blue');
@@ -28,6 +24,11 @@ function draw(){
 	Direct({x1:0, y1: height / 2, x2: width, y2: width /2}); // --
 
 	stroke('purple');
-	Direct({x1:width/2, y1: 0, x2: width/2, y2: height}); // | 
+	Direct({x1:width/2, y1: 0, x2: width/2, y2: height}); // |
+
+	*/
+
+	Circle({radius:50,x:200,y:200});
+
 	
 }

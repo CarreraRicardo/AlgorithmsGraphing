@@ -252,3 +252,58 @@ function Bresenham(punto){
 
 	}
 }
+
+function Circle (circle){
+
+	var radius = circle.radius;
+	var x = 0;
+	var y = radius;
+
+	var p = 5/4 - radius; 
+
+	nextPoint();
+
+	function nextPoint(){
+		
+		point(x + circle.x,y + circle.y);
+		
+		
+		//console.log((x) + "," + (y));
+	
+		
+		while(x < y){
+
+			x++;
+			
+			if(p < 0){
+
+				p = p + (2 * x) + 1;
+				
+			}
+			else{
+
+				
+				y--;
+				p = p + 2*(x - y) + 1;
+				
+
+			}
+
+			point(circle.x + x, circle.y + y);
+			point(circle.x + x, circle.y - y);
+			point(circle.x - x, circle.y + y);
+			point(circle.x - x, circle.y - y);
+			point(circle.x + y, circle.y + x);
+			point(circle.x + y, circle.y - x);
+			point(circle.x - y, circle.y + x);
+			point(circle.x - y, circle.y - x);
+
+			//console.log((x + circle.x) + "," + (y + circle.y));	
+			
+		}
+
+		
+		
+	}
+
+}
