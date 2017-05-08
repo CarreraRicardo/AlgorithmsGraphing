@@ -307,3 +307,50 @@ function Circle (circle){
 	}
 
 }
+
+
+function Koch(cursor,dist,N){
+
+	if(N === 0){
+
+		console.log(cursor.punto);
+
+		cursor.punto = kochNext(cursor,dist);
+
+		console.log(cursor.punto);
+	}
+	else{
+
+		Koch(cursor,dist / 3, N - 1);
+
+		cursor.angulo = cursor.angulo + Math.PI / 3;
+
+		Koch(cursor,dist /3 ,N - 1);
+
+		cursor.angulo = cursor.angulo - Math.PI * 2 / 3;
+
+		Koch(cursor,dist /3, N - 1);
+
+		cursor.angulo = cursor.angulo + Math.PI / 3;
+
+		Koch(cursor,dist / 3,N - 1);
+
+	}
+
+}
+
+function kochNext(cursor,dist){
+
+	var p = {};
+
+	p.x = cursor.punto.x + dist * Math.cos(cursor.angulo);
+	p.y = cursor.punto.y + dist * Math.sin(cursor.angulo);
+
+
+
+	line(cursor.punto.x,cursor.punto.y,p.x,p.y);
+
+	return p;
+
+
+}

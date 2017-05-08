@@ -12,7 +12,7 @@ function draw(){
 	background('GREEN');
 
 	
-	strokeWeight(3);
+	//strokeWeight(1);
 	stroke('yellow');
 	/*
 	Direct({x1:0, y1: 0, x2: width, y2: height}); //   \ 
@@ -28,7 +28,20 @@ function draw(){
 
 	*/
 
-	Circle({radius:50,x:200,y:200});
+	//Circle({radius:50,x:200,y:200});
 
+
+	var cursor = {
+
+		punto:{
+			x:20,
+			y:200
+
+		},
+		angulo:0
+
+	};
+
+	Koch(cursor,400,1);
 	
 }
